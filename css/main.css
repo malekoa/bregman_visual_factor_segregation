@@ -40,7 +40,7 @@ body, html {
 
 .rangeContainer {
     position: absolute;
-    bottom: 20vh;
+    bottom: 10vh;
     width: 50vw;
     z-index: 1;
 }
