@@ -12,39 +12,14 @@ body, html {
     align-items: center;
 }
 
-.mainContainer {
-    height: 100%;
-    width: 75vw;
+.scene {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.charContainer {
-    display: block;
     justify-content: center;
-    font-size: 9vw;
-    width: 9vw;
-    height: 100%;
-}
-
-.char {
-    position: relative;
-    top: 45vh;
-}
-
-.mobileChar {
-    position: relative;
-    top: 45vh;
-}
-
-.rangeContainer {
-    position: absolute;
-    bottom: 10vh;
-    width: 50vw;
-    z-index: 1;
-}
-
-.rangeCls {
     width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.vertical-bar {
+    border: 1px solid black;
 }

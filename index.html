@@ -13,61 +13,13 @@
 </head>
 <body>
     <div class="main">
-        <div id="main-container" class="mainContainer">
-            <span class="charContainer">
-                <span class="char">L</span>
-            </span>
-            <span class="charContainer">
-                <span class="mobileChar">C</span>
-            </span>
-            <span class="charContainer">
-                <span class="char">A</span>
-            </span>
-            <span class="charContainer">
-                <span class="mobileChar">H</span>
-            </span>
-            <span class="charContainer">
-                <span class="char">N</span>
-            </span>
-            <span class="charContainer">
-                <span class="mobileChar">O</span>
-            </span>
-            <span class="charContainer">
-                <span class="char">G</span>
-            </span>
-            <span class="charContainer">
-                <span class="mobileChar">M</span>
-            </span>
-            <span class="charContainer">
-                <span class="char">U</span>
-            </span>
-            <span class="charContainer">
-                <span class="mobileChar">S</span>
-            </span>
-            <span class="charContainer">
-                <span class="char">A</span>
-            </span>
-            <span class="charContainer">
-                <span class="mobileChar">K</span>
-            </span>
-            <span class="charContainer">
-                <span class="char">G</span>
-            </span>
-            <span class="charContainer">
-                <span class="mobileChar">Y</span>
-            </span>
-            <span class="charContainer">
-                <span class="char">E</span>
-            </span>
+        <div id="scene" class="scene">
+
         </div>
-        <div class="rangeContainer">
-            <input oninput="modifyCharHeight()" type="range" class="rangeCls" id="rangeSlider">
-        </div>
-    </div> 
+    </div>
     <script>
         window.onload = () => {
-            document.getElementById('rangeSlider').value = 0;
-            modifyCharHeight();
+            buildScene('one', 'language');
         }
     </script>
 </body>
