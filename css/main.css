@@ -24,4 +24,14 @@ body, html {
     border: 1px solid black;
 }
 
-.mobileLetterBox {}
+.mobileSliderBox {
+    /*Does nothing for now*/
+}
+
+.mobileLetterBox {
+    top: 45vh;
+}
+
+.staticLetterBox {
+    top: 45vh;
+}

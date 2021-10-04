@@ -4,28 +4,54 @@ let buildSliderBox = (character) => {
     return s;
 }
 
+let buildLetterBox = (character, isMobile, width) => {
+    let s = document.createElement('span');
+    s.style.position = 'relative';
+    s.style.fontSize = width;
+    s.innerText = character;
+    if (isMobile) {
+        s.classList.add('mobileLetterBox');
+    } else {
+        s.classList.add('staticLetterBox');
+    }
+    return s;
+}
+
 let buildScene = (word1, word2) => {
+    word1 = word1.toUpperCase();
+    word2 = word2.toUpperCase();
     let scene = document.getElementById('scene');
+    scene.innerHTML = '';
     let word1SliderBoxes = [];
     let word2SliderBoxes = [];
-    let sliderBoxWidth = '10vw';
+    let sliderBoxWidth = (95 / (word1.length + word2.length)).toString() + 'vw';
+    //let sliderBoxWidth = '10vw';
     console.log('sliderBoxWidth: ', sliderBoxWidth);
     // the first word should be the stationary one.
     for(let character of word1) {
-        let sliderBox = buildSliderBox(character);
+        let sliderBox = document.createElement('span');
+        sliderBox.appendChild(buildLetterBox(character, false, sliderBoxWidth));
         // adding styles to letterBox
-        sliderBox.style.fontSize = sliderBoxWidth;
+        sliderBox.style.width = sliderBoxWidth;
+        sliderBox.style.display = 'block';
+        sliderBox.style.textAlign = 'center';
         // done adding styles to letterBox
         word1SliderBoxes.push(sliderBox);
     }
     // the second word should be the mobile one.
     for(let character of word2) {
-        let mobileSliderBox = buildSliderBox(character);
+        let mobileSliderBox = buildSliderBox('');
+        mobileSliderBox.appendChild(buildLetterBox(character, true, sliderBoxWidth));
+        // add mobileSliderBox class to mobileSliderBox to make it easy to
+        // pick out
+        mobileSliderBox.classList.add('mobileSliderBox');
         // adding styles to mobileLetterBox
-        mobileSliderBox.style.fontSize = sliderBoxWidth;
+        mobileSliderBox.style.width = sliderBoxWidth;
         mobileSliderBox.style.backgroundColor = 'rgba(255,0,0,0.1)';
         mobileSliderBox.style.borderLeft = '1px solid black';
         mobileSliderBox.style.borderRight = '1px solid black';
+        mobileSliderBox.style.display = 'block';
+        mobileSliderBox.style.textAlign = 'center';
         // done adding styles to mobileLetterBox
         word2SliderBoxes.push(mobileSliderBox);
     }
@@ -81,10 +107,10 @@ let buildScene = (word1, word2) => {
 
 /**
  * Todo:
- *  - Vertically center the text
- *  - Allow the user to change the font size
- *  - Allow the user to move the letters up and down
- *  - Allow the user to choose the words in the GUI
+ *  - Vertically center the text - DONE
+ *  - Allow the user to change the font size - NO NEED
+ *  - Allow the user to move the letters up and down 
+ *  - Allow the user to choose the words in the GUI - DONE
  *  - Allow the user to vibrate the words
  *  - Allow the user to adjust the intensity of the vibrations
  */
