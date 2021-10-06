@@ -7,19 +7,50 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&family=Jost&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/normalize.min.css">
     <script src="./js/main.js"></script>
+    <script src="https://kit.fontawesome.com/aaad0c1a74.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="main">
         <div id="scene" class="scene">
 
         </div>
+        <div id="desktopMenu" class="desktop-menu">
+            <span class="x-x">
+                <input type="text" placeholder="Word 1" id="word1Input">
+                <button class="rand">
+                    <em class="fas fa-random"></em> 
+                </button>
+            </span>
+            <span class="x-x">
+                <input type="text" placeholder="Word 2" id="word2Input">
+                <button class="rand">
+                    <em class="fas fa-random"></em> 
+                </button>
+            </span>
+            <button class="apply-btn" onclick="guiBuildScene()">Build Scene</button>
+            <span class="vertical-separator"></span>
+            <span class="x-x">
+                <span>Toggle Vibration</span>
+                <input type="checkbox" name="" id="">
+            </span>
+            <span class="x-x">
+                <span>Intensity</span>
+                <input type="range" id="" class="slider">
+            </span>
+            <span class="vertical-separator"></span>
+            <span class="x-x">
+                <span>Toggle Debug Mode</span>
+                <input type="checkbox" id="debugCheckbox" onclick="toggleDebug()" checked='true'>
+            </span>
+        </div>
+        <input type="range" id="mainSlider" class="main-slider slider" value="0" oninput="slideMobileLetterBoxes()">
     </div>
     <script>
         window.onload = () => {
-            buildScene('astrobiology', 'rocketpsychology');
+            buildScene('language', 'grammar');
         }
     </script>
 </body>

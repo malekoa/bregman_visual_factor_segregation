@@ -4,6 +4,47 @@ body, html {
     color: rgb(20, 20, 20);
 }
 
+input {
+    padding: .25rem;
+}
+
+input[type='checkbox'] {
+    cursor: pointer;
+}
+
+button {
+    padding: .25rem;
+    cursor: pointer;
+}
+
+
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 3px;
+    background-color: rgb(60, 60, 60);
+    cursor: pointer;
+}
+  
+.slider::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 3px;
+    background-color: rgb(60, 60, 60);
+    cursor: pointer;
+}
+
+.slider {
+    -webkit-appearance: none;
+    height: 0.5rem;
+    border: 1px solid rgb(80, 80, 80);
+    background-color: rgb(240, 240, 240);
+    border-radius: 3px;
+}
+
 .main {
     width: 100vw;
     height: 100vh;
@@ -24,6 +65,11 @@ body, html {
     border: 1px solid black;
 }
 
+.vertical-separator {
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
 .mobileSliderBox {
     /*Does nothing for now*/
 }
@@ -34,4 +80,67 @@ body, html {
 
 .staticLetterBox {
     top: 45vh;
+}
+
+.desktop-menu {
+    font-family: 'Fira Code';
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+    background-color: rgb(226, 226, 226);
+    padding: 0.5rem;
+    border: 1px solid rgb(85, 85, 85);
+    border-radius: 0.25rem;
+}
+
+.desktop-menu > * {
+    margin-block: 0.25rem;
+}
+
+.x-x {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.x-x > * {
+    margin-inline: 0.1rem;
+}
+
+.rand {
+    color: rgb(60, 60, 60);
+}
+
+.apply-btn {
+    width: 100%;
+}
+
+.menu-toggle-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+}
+
+.menu-header {
+    display: flex; 
+    justify-content: end; 
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.main-slider {
+    position: fixed;
+    bottom: 10vh;
+    width: 50vw;
 }

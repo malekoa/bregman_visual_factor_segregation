@@ -1,7 +1,68 @@
+let initializeMainSlider = () => {
+    document.getElementById('mainSlider').value = 0;
+}
+
+let slideMobileLetterBoxes = () => {
+    let mobileLetterBoxes = getMobileLetterBoxes();
+    let mainSlider = document.getElementById('mainSlider');
+    let delta = (mainSlider.value / 100 * 20);
+    console.log('delta: ', delta);
+    for ( let mobileLetterBox of mobileLetterBoxes ) {
+        mobileLetterBox.style.top = (45 - delta).toString() + 'vh';
+    }
+}
+
+let toggleMenu = () => {
+    let menu = document.getElementById('desktopMenu');
+    menu.classList.toggle('hidden');
+}
+
 let buildSliderBox = (character) => {
     let s = document.createElement('span');
     s.innerText = character;
     return s;
+}
+
+let getMobileLetterBoxes = () => {
+    return document.getElementsByClassName('mobileLetterBox');
+}
+
+let getMobileSliderBoxes = () => {
+    return document.getElementsByClassName('mobileSliderBox');
+}
+
+// debugOn is a boolean. If true, turn debugMode on. Turn off otherwise.
+let setDebug = (debugOn) => {
+    let mobileLetterBoxes = getMobileLetterBoxes();
+    let mobileSliderBoxes = getMobileSliderBoxes();
+    if (debugOn) {
+        for( let mobileLetterBox of mobileLetterBoxes ) {
+            mobileLetterBox.style.backgroundColor = 'rgba(255,0,0,0.1)';
+            mobileLetterBox.style.border = '1px solid black';
+        }
+        for( let mobileSliderBox of mobileSliderBoxes ) {
+            mobileSliderBox.style.backgroundColor = 'rgba(255,0,0,0.05)';
+            mobileSliderBox.style.border = '1px solid black';
+        }
+    } else {
+        for( let mobileLetterBox of mobileLetterBoxes ) {
+            mobileLetterBox.style.backgroundColor = '';
+            mobileLetterBox.style.border = '';
+        }
+        for( let mobileSliderBox of mobileSliderBoxes ) {
+            mobileSliderBox.style.backgroundColor = '';
+            mobileSliderBox.style.border = '';
+        }
+    }
+}
+
+let toggleDebug = () => {
+    let debugCheckbox = document.getElementById('debugCheckbox');
+    if (debugCheckbox.checked) {
+        setDebug(true);
+    } else {
+        setDebug(false);
+    }
 }
 
 let buildLetterBox = (character, isMobile, width) => {
@@ -25,8 +86,7 @@ let buildScene = (word1, word2) => {
     let word1SliderBoxes = [];
     let word2SliderBoxes = [];
     let sliderBoxWidth = (95 / (word1.length + word2.length)).toString() + 'vw';
-    //let sliderBoxWidth = '10vw';
-    console.log('sliderBoxWidth: ', sliderBoxWidth);
+    //console.log('sliderBoxWidth: ', sliderBoxWidth);
     // the first word should be the stationary one.
     for(let character of word1) {
         let sliderBox = document.createElement('span');
@@ -47,9 +107,6 @@ let buildScene = (word1, word2) => {
         mobileSliderBox.classList.add('mobileSliderBox');
         // adding styles to mobileLetterBox
         mobileSliderBox.style.width = sliderBoxWidth;
-        mobileSliderBox.style.backgroundColor = 'rgba(255,0,0,0.1)';
-        mobileSliderBox.style.borderLeft = '1px solid black';
-        mobileSliderBox.style.borderRight = '1px solid black';
         mobileSliderBox.style.display = 'block';
         mobileSliderBox.style.textAlign = 'center';
         // done adding styles to mobileLetterBox
@@ -94,15 +151,19 @@ let buildScene = (word1, word2) => {
         }
     }
 
-    console.log(mixedSliderBoxes);
+    //console.log(mixedSliderBoxes);
     for (let sliderBox of mixedSliderBoxes) {
         scene.appendChild(sliderBox);
     }
+    
+    initializeMainSlider();
+    toggleDebug();
+}
 
-    /* now, for all sliderblocks, I should set their display to block and
-     * append a child span in them that has the mobileLetterBox class 
-     * applied to them. 
-     */
+let guiBuildScene = () => {
+    let word1 = document.getElementById('word1Input');
+    let word2 = document.getElementById('word2Input');
+    buildScene(word1.value, word2.value);
 }
 
 /**
