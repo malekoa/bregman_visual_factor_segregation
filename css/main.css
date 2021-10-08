@@ -67,7 +67,7 @@ button {
 
 .vertical-separator {
     width: 100%;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid rgb(175, 175, 175);
 }
 
 .mobileSliderBox {
@@ -143,4 +143,71 @@ button {
     position: fixed;
     bottom: 10vh;
     width: 50vw;
+}
+
+.menu-large {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 1rem;
+    top: 1rem;
+    border: 1px solid rgb(80, 80, 80);
+    background-color: rgb(240, 240, 240);
+    border-radius: 3px;
+    width: 15vw;
+    padding: 0.5rem;
+}
+
+.menu-large > * {
+    margin-block-end: 0.5rem;
+}
+
+.menu-large-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menu-btn {
+    color: rgb(80, 80, 80);
+    border: none;
+    background-color: transparent;
+}
+
+.menu-btn:hover {
+    color: rgb(40, 40, 40);
+    cursor: pointer;
+}
+
+.menu-large-body {
+    width: 100%;
+    height: 100%;
+}
+
+.menu-large-body > * {
+    margin-block-end: 0.5rem;
+}
+
+.x-x-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.x-x-2 > input[type='text'] {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.1rem;
+}
+
+.x-x-2 > input[type='range'] {
+    width: 100%;
+    margin-inline-start: 1rem;
+}
+
+.apply-btn-2 {
+    width: 100%;
 }

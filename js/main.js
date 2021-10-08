@@ -170,7 +170,7 @@ let guiBuildScene = () => {
  * Todo:
  *  - Vertically center the text - DONE
  *  - Allow the user to change the font size - NO NEED
- *  - Allow the user to move the letters up and down 
+ *  - Allow the user to move the letters up and down - DONE
  *  - Allow the user to choose the words in the GUI - DONE
  *  - Allow the user to vibrate the words
  *  - Allow the user to adjust the intensity of the vibrations

@@ -15,38 +15,46 @@
 <body>
     <div class="main">
         <div id="scene" class="scene">
-
         </div>
-        <div id="desktopMenu" class="desktop-menu">
-            <span class="x-x">
-                <input type="text" placeholder="Word 1" id="word1Input">
-                <button class="rand">
-                    <em class="fas fa-random"></em> 
+        <div id="menuLarge" class="menu-large">
+            <span class="menu-large-header">
+                <button class="menu-btn">
+                    <em class="fas fa-times"></em>
+                </button>
+                <button>
+                    Reset
                 </button>
             </span>
-            <span class="x-x">
-                <input type="text" placeholder="Word 2" id="word2Input">
-                <button class="rand">
-                    <em class="fas fa-random"></em> 
-                </button>
+            <span class="menu-large-body">
+                <span class="x-x-2">
+                    <input type="text" placeholder="Static Word" id="word1Input">
+                    <button class="menu-btn">
+                        <em class="fas fa-random"></em>
+                    </button>
+                </span>
+                <span class="x-x-2">
+                    <input type="text" placeholder="Mobile Word" id="word2Input">
+                    <button class="menu-btn">
+                        <em class="fas fa-random"></em>
+                    </button>
+                </span>
+                <button class="apply-btn-2" onclick="guiBuildScene()">Build Scene</button>
             </span>
-            <button class="apply-btn" onclick="guiBuildScene()">Build Scene</button>
             <span class="vertical-separator"></span>
-            <span class="x-x">
-                <span>Toggle Vibration</span>
-                <input type="checkbox" name="" id="">
+            <span class="x-x-2">
+                <span>Vibration</span>
+                <input type="checkbox">
             </span>
-            <span class="x-x">
+            <span class="x-x-2">
                 <span>Intensity</span>
-                <input type="range" id="" class="slider">
+                <input type="range">
             </span>
             <span class="vertical-separator"></span>
-            <span class="x-x">
-                <span>Toggle Debug Mode</span>
-                <input type="checkbox" id="debugCheckbox" onclick="toggleDebug()" checked='true'>
-            </span>
+            <span class="x-x-2">
+                <span>Debug</span>
+                <input type="checkbox" id="debugCheckbox" onclick="toggleDebug()">            </span>
         </div>
-        <input type="range" id="mainSlider" class="main-slider slider" value="0" oninput="slideMobileLetterBoxes()">
+        <input type="range" id="mainSlider" class="main-slider" value="0" step="0.1" oninput="slideMobileLetterBoxes()">
     </div>
     <script>
         window.onload = () => {
