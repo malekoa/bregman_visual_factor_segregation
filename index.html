@@ -16,25 +16,28 @@
     <div class="main">
         <div id="scene" class="scene">
         </div>
-        <div id="menuLarge" class="menu-large">
+        <button id="menuToggleBtn" class="menu-toggle-btn" onclick="toggleMenu()">
+            <em class="fas fa-bars"></em>
+        </button>
+        <div id="menuLarge" class="hidden">
             <span class="menu-large-header">
-                <button class="menu-btn">
+                <button class="menu-btn" onclick="toggleMenu()">
                     <em class="fas fa-times"></em>
                 </button>
-                <button>
+                <button onclick="reset()">
                     Reset
                 </button>
             </span>
             <span class="menu-large-body">
                 <span class="x-x-2">
                     <input type="text" placeholder="Static Word" id="word1Input">
-                    <button class="menu-btn">
+                    <button class="menu-btn" onclick="randomizeStaticWord()">
                         <em class="fas fa-random"></em>
                     </button>
                 </span>
                 <span class="x-x-2">
                     <input type="text" placeholder="Mobile Word" id="word2Input">
-                    <button class="menu-btn">
+                    <button class="menu-btn" onclick="randomizeMobileWord()">
                         <em class="fas fa-random"></em>
                     </button>
                 </span>
@@ -43,16 +46,17 @@
             <span class="vertical-separator"></span>
             <span class="x-x-2">
                 <span>Vibration</span>
-                <input type="checkbox">
+                <input id="vibrationCheckbox" type="checkbox" onclick="vibrate()">
             </span>
+            <span class="vertical-separator"></span>
             <span class="x-x-2">
-                <span>Intensity</span>
-                <input type="range">
+                <span>Colorify</span>
+                <input id="colorifyCheckbox" type="checkbox" onclick="colorify()">
             </span>
             <span class="vertical-separator"></span>
             <span class="x-x-2">
                 <span>Debug</span>
-                <input type="checkbox" id="debugCheckbox" onclick="toggleDebug()">            </span>
+                <input type="checkbox" id="debugCheckbox" onclick="toggleDebug()"></span>
         </div>
         <input type="range" id="mainSlider" class="main-slider" value="0" step="0.1" oninput="slideMobileLetterBoxes()">
     </div>

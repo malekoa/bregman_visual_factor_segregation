@@ -135,6 +135,20 @@ button {
     width: 100%;
 }
 
+.menu-toggle-btn {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: rgb(60, 60, 60);
+}
+
+.menu-toggle-btn:hover {
+    color: rgb(20, 20, 20);
+}
+
 .hidden {
     display: none;
 }
@@ -210,4 +224,44 @@ button {
 
 .apply-btn-2 {
     width: 100%;
+}
+
+.colorify {
+    animation: change-colors 5s linear infinite alternate;
+}
+
+@keyframes change-colors {
+    0%, 100% {
+        color: red;
+    }
+
+    50% {
+        color: blue;
+    }
+
+    80% {
+        color: green;
+    }
+}
+
+.vibrate {
+    animation: anim-font-size 0.2s linear infinite;
+}
+
+@keyframes anim-font-size {
+    0% {
+        top: 45vh;
+    }
+
+    33% {
+        top: 44.5vh;
+    }
+
+    66% {
+        top: 45.5vh;
+    }
+
+    100% {
+        top: 45vh;
+    }
 }

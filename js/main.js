@@ -1,20 +1,64 @@
+let fiveLetterWords = ['seven', 'world', 'about', 'again', 'heart', 'pizza', 'water', 'happy', 'sixty', 'board', 'month', 'Angel', 'death', 'green', 'music', 'fifty', 'three', 'party', 'piano', 'Kelly', 'mouth', 'woman', 'sugar', 'amber', 'dream', 'apple', 'laugh', 'tiger', 'faith', 'earth', 'river', 'money', 'peace', 'forty', 'words', 'smile', 'abate', 'house', 'alone', 'watch', 'lemon', 'South', 'erica', 'anime', 'after', 'santa', 'women', 'admin', 'cough', 'story '];
+let sixLetterWords = ['purple', 'orange', 'family', 'twelve', 'silver', 'Godard', 'thirty', 'donate', 'people', 'future', 'Heaven', 'banana', 'Africa', 'Monday', 'office', 'nature', 'eleven', 'Mumbai', 'animal', 'twenty', 'snitch', 'Rachel', 'Friday', 'Father', 'yellow', 'poetry', 'August', 'broken', 'potato', 'Sunday', 'circle', 'school', 'breath', 'moment', 'circus', 'person', 'scarce', 'London', 'energy', 'sister', 'spring', 'change', 'monkey', 'system', 'Austin', 'secret', 'pirate', 'turtle', 'ninety']
+
+let randomizeStaticWord = () => {
+    let staticField = document.getElementById('word1Input');
+    staticField.value = sixLetterWords[ Math.ceil( Math.random() * 49 ) ];
+}
+
+let randomizeMobileWord = () => {
+    let mobileField = document.getElementById('word2Input');
+    mobileField.value = fiveLetterWords[ Math.ceil( Math.random() * 49 ) ];
+}
+
+let colorify = () => {
+    let mobileLetterBoxes = getMobileLetterBoxes();
+    for ( let box of mobileLetterBoxes ) {
+        box.classList.toggle('colorify');
+    }
+}
+
+let vibrate = () => {
+    let mobileLetterBoxes = getMobileLetterBoxes();
+    for ( let box of mobileLetterBoxes ) {
+        box.classList.toggle('vibrate');
+    }
+}
+
+let stopVibrationAndColorization = () => {
+    let mobileLetterBoxes = getMobileLetterBoxes();
+    for ( let box of mobileLetterBoxes ) {
+        box.classList.remove('vibrate');
+        box.classList.remove('colorify');
+    }
+    document.getElementById('vibrationCheckbox').checked = false;
+    document.getElementById('colorifyCheckbox').checked = false;
+}
+
 let initializeMainSlider = () => {
     document.getElementById('mainSlider').value = 0;
 }
 
+
+
 let slideMobileLetterBoxes = () => {
+    stopVibrationAndColorization();
     let mobileLetterBoxes = getMobileLetterBoxes();
     let mainSlider = document.getElementById('mainSlider');
     let delta = (mainSlider.value / 100 * 20);
-    console.log('delta: ', delta);
+    //console.log('delta: ', delta);
     for ( let mobileLetterBox of mobileLetterBoxes ) {
         mobileLetterBox.style.top = (45 - delta).toString() + 'vh';
     }
 }
 
 let toggleMenu = () => {
-    let menu = document.getElementById('desktopMenu');
+    let menu = document.getElementById('menuLarge');
+    let menuBtn = document.getElementById('menuToggleBtn');
     menu.classList.toggle('hidden');
+    menu.classList.toggle('menu-large');
+    menuBtn.classList.toggle('hidden');
+    menuBtn.classList.toggle('menu-large');
 }
 
 let buildSliderBox = (character) => {
@@ -38,11 +82,11 @@ let setDebug = (debugOn) => {
     if (debugOn) {
         for( let mobileLetterBox of mobileLetterBoxes ) {
             mobileLetterBox.style.backgroundColor = 'rgba(255,0,0,0.1)';
-            mobileLetterBox.style.border = '1px solid black';
+            mobileLetterBox.style.border = '1px solid rgba(0, 0, 0, 0.3)';
         }
         for( let mobileSliderBox of mobileSliderBoxes ) {
             mobileSliderBox.style.backgroundColor = 'rgba(255,0,0,0.05)';
-            mobileSliderBox.style.border = '1px solid black';
+            mobileSliderBox.style.border = '1px solid rgba(0, 0, 0, 0.3)';
         }
     } else {
         for( let mobileLetterBox of mobileLetterBoxes ) {
@@ -163,8 +207,21 @@ let buildScene = (word1, word2) => {
 let guiBuildScene = () => {
     let word1 = document.getElementById('word1Input');
     let word2 = document.getElementById('word2Input');
+    if(word1.value == "") {
+        word1.value = "aren't effective"
+    }
+    if(word2.value == "") {
+        word2.value = "empty strings"
+    }
     buildScene(word1.value, word2.value);
 }
+
+let reset = () => {
+    document.getElementById('word1Input').value = "";
+    document.getElementById('word2Input').value = "";
+    buildScene('language', 'grammar');
+}
+
 
 /**
  * Todo:
